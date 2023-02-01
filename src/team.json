@@ -1,0 +1,21 @@
+{
+    "name": "VIPS",
+    "spots": 5,
+    "members": [
+        {
+            "name": "John Doe",
+            "email": "john@doe.com",
+            "status": "Active"
+        },
+        {
+            "name": "John Smith",
+            "email": "john@smith.com",
+            "status": "Active"
+        },
+        {
+            "name": "John Taylor",
+            "email": "john@taylor.com",
+            "status": "Active"
+        }
+    ]
+}
