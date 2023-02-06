@@ -5,20 +5,29 @@
 </script>
 
 <template>
-    <div v-if="show" class="modal-mask">
-        <div class="modal-card">            
-            <div>
-                <slot>
-                    Default body
-                </slot>
-            </div>
-            <footer class="modal-footer">
-                <slot name="footer">
-                    <button @click="$emit('closeModal')">Close</button>
-                </slot>
-            </footer>
-        </div>        
-    </div>
+    <Transition
+        enter-from-class="opacity-0 scale-125"
+        enter-to-class="opacity-100 scale-100"    
+        enter-active-class="transition duration-700"    
+        leave-active-class="transition duration-400"  
+        leave-from-class="opacity-100 scale-100"
+        leave-to-class="opacity-0 scale-125"
+    >
+        <div v-if="show" class="modal-mask">
+            <div class="modal-card">            
+                <div>
+                    <slot>
+                        Default body
+                    </slot>
+                </div>
+                <footer class="modal-footer">
+                    <slot name="footer">
+                        <button @click="$emit('closeModal')">Close</button>
+                    </slot>
+                </footer>
+            </div>        
+        </div>
+    </Transition>
 </template>
 
 <style>
