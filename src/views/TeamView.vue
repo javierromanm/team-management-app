@@ -7,24 +7,25 @@
     import { ref } from "vue"
     let team = useTeamStore();
     team.fill()
-    let showModal = ref(false)
 </script>
 
 <template>
     <div class="flex justify-between flex-col">
-        <TeamHeader @openModal="showModal = true" />
+        <TeamHeader />
     <div class="place-self-center flex flex-col gap-y-3" style="width: 725px">
     <TeamMembers />        
     </div>
         <TeamFooter />
     </div>
-    <Modal :show="showModal" @closeModal="showModal = false" >
-        <p>Need to add a member to the team</p>
-        <form action="" class="mt-6">
-            <div class="flex gap-2">
-                <input type="email" placeholder="Email address..." class="flex-1">
-                <button>Add</button>
-            </div>
-        </form>
-    </Modal>
+    <Teleport to="body">
+        <Modal :show="showModal" @closeModal="showModal = false" >
+            <p>Need to add a member to the team</p>
+            <form action="" class="mt-6">
+                <div class="flex gap-2">
+                    <input type="email" placeholder="Email address..." class="flex-1">
+                    <button>Add</button>
+                </div>
+            </form>
+        </Modal>
+    </Teleport>
 </template>
